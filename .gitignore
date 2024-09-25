@@ -1,0 +1,6 @@
+### Xcode ###
+xcuserdata/
+
+### JetBrains IDEs ###
+src/.idea/
+.idea/
