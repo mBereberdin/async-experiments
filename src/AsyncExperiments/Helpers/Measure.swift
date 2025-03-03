@@ -156,6 +156,7 @@ public struct Measure {
     public static func time(message: String, logStates: Bool = true, code: () throws -> ()) throws {
         if logStates {
             print(String(format: START_MESSAGE_TEMPLATE, message))
+            Thread.current.printInfoIfEnabled(stringId: "\(message)_measure_start")
         }
         
         let startTime = CFAbsoluteTimeGetCurrent()
@@ -164,6 +165,7 @@ public struct Measure {
         
         if logStates {
             print(String(format: STOP_MESSAGE_TEMPLATE, message))
+            Thread.current.printInfoIfEnabled(stringId: "\(message)_measure_end")
         }
         
         print(String(format: TIME_MESSAGE_TEMPLATE,

@@ -10,6 +10,8 @@ import Foundation
 /// Поставщик информации.
 public struct DataProvider {
     
+    // MARK: - Fields
+    
     /// Счетчик вызовов для выдачи следующего числа.
     private static var callCounter = 1
     
@@ -19,9 +21,7 @@ public struct DataProvider {
     ///
     /// - Returns: Число.
     public static func getNumber(needRandom: Bool = false) -> Int {
-        if EnvironmentVariables.PRINT_THREADS {
-            print(String(format: EnvironmentVariables.THREADS_MESSAGE_TEMPLATE, "get_Random_Number", Thread.current))
-        }
+        Thread.current.printInfoIfEnabled(stringId: "getNumber")
         
         return createNumber()
     }
@@ -41,16 +41,14 @@ public struct DataProvider {
     ///
     /// - Returns: Случайное число.
     public static func getNumberAsync() async -> Int {
-        if EnvironmentVariables.PRINT_THREADS {
-            print(String(format: EnvironmentVariables.THREADS_MESSAGE_TEMPLATE, "get_Random_Number_Async", Thread.current))
-        }
+        Thread.current.printInfoIfEnabled(stringId: "getNumberAsync")
         
         return createNumber()
     }
     
     /// Сбросить счетчик.
     public static func resetCounter() {
-        callCounter = 1
+        self.callCounter = 1
     }
     
     // MARK: - Private
@@ -70,11 +68,10 @@ public struct DataProvider {
             return Int.random(in: 0...1_000)
         }
         
-        // TODO: Проверить что из-за строки выше не срабатывает defer.
         defer {
-            callCounter += 1
+            self.callCounter += 1
         }
         
-        return callCounter
+        return self.callCounter
     }
 }

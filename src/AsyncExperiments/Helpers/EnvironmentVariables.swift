@@ -13,7 +13,7 @@ public struct EnvironmentVariables {
     // MARK: - Fields
     
     /// Время приостановки задачи для симулации работы\задержки.
-    public static let DELAY_TIME = 0.00001
+    public static var DELAY_TIME = 0.00001
     
     /// Симулировать задержку.
     public static var SIMULATE_DELAY = true
@@ -30,7 +30,14 @@ public struct EnvironmentVariables {
     /// Шаблон сообщения о потоке.
     ///
     ///```swift
-    /// "🧵 [%@] run on thread: %@"
+    /// "🧵 [%@] thread: %@"
     ///```
-    public static let THREADS_MESSAGE_TEMPLATE = "🧵 [%@] run on thread: %@"
+    public static let THREADS_MESSAGE_TEMPLATE = "🧵 [%@] thread: %@"
+    
+    /// Шаблон сообщения результата.
+    ///
+    ///```swift
+    /// "📦 Result collection: count: %d items:\n%@"
+    ///```
+    public static let RESULT_MESSAGE_TEMPLATE = "📦 Result collection: count: %d items:\n%@"
 }

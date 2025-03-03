@@ -14,12 +14,16 @@ import Foundation
 //EnvironmentVariables.PRINT_THREADS = true
 //EnvironmentVariables.PRINT_RESULT = true
 //EnvironmentVariables.SIMULATE_DELAY = false
+//EnvironmentVariables.DELAY_TIME = 0.00005
 EnvironmentVariables.nums = Array(repeating: 0, count: 80_000)
+//EnvironmentVariables.nums = Array(repeating: 0, count: 20)
 
 // MARK: - Work here
 
-OneCollectionService.executeAllExamples()
-await OneCollectionService.executeAllExamplesAsync()
+//OneCollectionService.executeAllExamples()
+//await OneCollectionService.executeAllExamplesAsync()
+//
+//SeveralCollectionsService.executeAllExamples()
+//await SeveralCollectionsService.executeAllExamplesAsync()
 
-SeveralCollectionsService.executeAllExamples()
-await SeveralCollectionsService.executeAllExamplesAsync()
+GCDService.executeAllExamples()
